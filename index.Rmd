@@ -81,6 +81,11 @@ ggplot(data_open) +
   scale_color_brewer(palette = "Set1")
 
 
+ggplot(data_open) +
+  geom_line(aes(yd, temperature, color = microsite), size = 2) +
+  facet_wrap(~site) +
+  scale_color_brewer(palette = "Set1")
+
 
 ```
 
