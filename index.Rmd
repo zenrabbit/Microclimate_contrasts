@@ -28,7 +28,7 @@ ng <- data %>%
   filter(researcher == "ng")
 
 data_open <- data %>% 
-  filter(microsite != c("high", "shrub"))
+  filter(microsite != c("high"))
 
 ```
 
@@ -61,6 +61,15 @@ ggplot(ng) +
 ggplot(ng) +
   geom_line(aes(yd, humidity, color = microsite), size = 2) +
   scale_color_brewer(palette = "Set1")
+
+#climograph just shelter
+ggplot(ng) +
+  geom_line(aes(yd, temperature, color = microsite), size = 2) +
+  geom_point(aes(yd, humidity, color = microsite), size = 1) +
+  scale_color_brewer(palette = "Set1") +
+  scale_y_continuous(name = 'temp',
+                     sec.axis = sec_axis(~., name = 'humidity'))
+
 
 #shelters + open
 ggplot(data_open) +
