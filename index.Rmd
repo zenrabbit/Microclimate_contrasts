@@ -10,3 +10,9 @@ knitr::opts_chunk$set(echo = TRUE, warning = FALSE, message = FALSE)
 
 ## Microclimatic point estimates
 
+```{r}
+#library(climate)
+library(hydroTSM)
+
+```
+
