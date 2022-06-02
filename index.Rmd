@@ -84,13 +84,15 @@ ggplot(ng) +
 
 
 #shelters + open
-#ggplot(data_open) +
-  #geom_line(aes(yd, temperature, color = microsite), size = 2) +
-  #scale_color_brewer(palette = "Set1")
+ggplot(data_open) +
+  geom_line(aes(yd, temperature, color = microsite), size = 2) +
+  scale_color_brewer(palette = "Set1") +
+  facet_wrap(~site)
 
-#ggplot(data_open) +
-  #geom_line(aes(yd, humidity, color = microsite), size = 2) +
-  #scale_color_brewer(palette = "Set1")
+ggplot(data_open) +
+  geom_line(aes(yd, humidity, color = microsite), size = 2) +
+  scale_color_brewer(palette = "Set1") +
+  facet_wrap(~site)
 
 ```
 
