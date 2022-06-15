@@ -19,7 +19,13 @@ library(tidyverse)
 library(lubridate)
 data <- read_csv("data/data.csv") %>%
   mutate(cd = mdy(date)) %>% 
-  mutate(yd = yday(cd))
+  mutate(yd = yday(cd)) %>%
+  mutate(microsite_number = as.character(microsite_number))
+
+sites <- data %>% 
+  group_by(region, site) %>% 
+  summarise(n_microsites = length(microsite_number))
+#write_csv(sites, "data/sites.csv")
 
 mz <- data %>% 
   filter(researcher == "mz")
