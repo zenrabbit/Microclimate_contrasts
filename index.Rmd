@@ -17,7 +17,7 @@ knitr::opts_chunk$set(echo = TRUE, warning = FALSE, message = FALSE)
 library(hydroTSM)
 library(tidyverse)
 library(lubridate)
-data <- read_csv("data/data.csv") %>%
+data <- read_csv("data/data_2022.csv") %>%
   mutate(cd = mdy(date)) %>% 
   mutate(yd = yday(cd)) %>%
   mutate(microsite_number = as.character(microsite_number))
@@ -25,7 +25,7 @@ data <- read_csv("data/data.csv") %>%
 sites <- data %>% 
   group_by(region, site) %>% 
   summarise(n_microsites = length(microsite_number))
-#write_csv(sites, "data/sites.csv")
+#write_csv(sites, "data/sites_2022.csv")
 
 mz <- data %>% 
   filter(researcher == "mz")
