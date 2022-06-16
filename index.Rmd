@@ -25,7 +25,9 @@ data <- read_csv("data/data_2022.csv") %>%
 sites <- data %>% 
   group_by(region, site) %>% 
   summarise(n_microsites = length(microsite_number))
-#write_csv(sites, "data/sites_2022.csv")
+write_csv(sites, "data/sites_2022.csv")
+
+
 
 mz <- data %>% 
   filter(researcher == "mz")
